@@ -624,8 +624,9 @@ function init() {
 // Start timer
 function startTimer() {
     state.timerActive = true;
+    updateTimer(); // Update immediately on start
     state.timerInterval = setInterval(() => {
-        if (state.timeLeft <= 1) {
+        if (state.timeLeft <= 0) {
             handleTimeout();
         } else {
             state.timeLeft--;
